@@ -30,11 +30,11 @@ app.get('/tasks', (req, res) => {
 // GET /tasks/<taskId>
 app.get('/tasks/:taskId', (req, res) => {
     dao.getTask(req.params.taskId)
-        .then((course) => {
-            if(course.error){
-                res.status(404).json(course);
+        .then((task) => {
+            if(task.error){
+                res.status(404).json(task);
             } else {
-                res.json(course);
+                res.json(task);
             }
         })
         .catch((err) => {
